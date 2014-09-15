@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "<#header#>"
+#import "MovieTitleViewController.h"
 
 @implementation AppDelegate
 
@@ -18,8 +18,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    UIViewController vc =
-    
+    UIViewController *vc = [[MovieTitleViewController alloc] initWithNibName:@"MovieTitleViewController" bundle:nil];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: vc];
+    self.window.rootViewController = nvc;
     
     return YES;
 }
