@@ -1,4 +1,4 @@
-# Tip Calculator
+# Rotten Tomatoes Viewer
 
 This is an iOS demo application for viewing movie information from Rotten Tomatoes .
 
