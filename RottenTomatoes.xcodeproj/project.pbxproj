@@ -21,6 +21,8 @@
 		1D79D27C19C3F90100963759 /* RottenTomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D79D27B19C3F90100963759 /* RottenTomatoesTests.m */; };
 		1D79D28819C3F99800963759 /* MovieTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D79D28619C3F99800963759 /* MovieTitleViewController.m */; };
 		1D79D28919C3F99800963759 /* MovieTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D79D28719C3F99800963759 /* MovieTitleViewController.xib */; };
+		1DA00B7519C6AEE300694A99 /* MovieDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA00B7319C6AEE300694A99 /* MovieDetailsViewController.m */; };
+		1DA00B7619C6AEE300694A99 /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DA00B7419C6AEE300694A99 /* MovieDetailsViewController.xib */; };
 		1DA80D1B19C67728006FB79C /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA80D1919C67728006FB79C /* MovieCell.m */; };
 		1DA80D1C19C67728006FB79C /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DA80D1A19C67728006FB79C /* MovieCell.xib */; };
 		42D396C3FB404ED6AE83A726 /* libPods-RottenTomatoes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE822C8F2224478D896A5CCD /* libPods-RottenTomatoes.a */; };
@@ -56,6 +58,9 @@
 		1D79D28519C3F99800963759 /* MovieTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTitleViewController.h; sourceTree = "<group>"; };
 		1D79D28619C3F99800963759 /* MovieTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTitleViewController.m; sourceTree = "<group>"; };
 		1D79D28719C3F99800963759 /* MovieTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTitleViewController.xib; sourceTree = "<group>"; };
+		1DA00B7219C6AEE300694A99 /* MovieDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailsViewController.h; sourceTree = "<group>"; };
+		1DA00B7319C6AEE300694A99 /* MovieDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsViewController.m; sourceTree = "<group>"; };
+		1DA00B7419C6AEE300694A99 /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
 		1DA80D1819C67728006FB79C /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		1DA80D1919C67728006FB79C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		1DA80D1A19C67728006FB79C /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -129,6 +134,7 @@
 				1D79D25D19C3F90100963759 /* Supporting Files */,
 				1D79D28A19C3F9E500963759 /* Movie Title View */,
 				1DA80D1D19C6772D006FB79C /* Movie Cell View */,
+				1DA00B7719C6AEEB00694A99 /* Movie Details */,
 			);
 			path = RottenTomatoes;
 			sourceTree = "<group>";
@@ -170,6 +176,16 @@
 				1D79D28719C3F99800963759 /* MovieTitleViewController.xib */,
 			);
 			name = "Movie Title View";
+			sourceTree = "<group>";
+		};
+		1DA00B7719C6AEEB00694A99 /* Movie Details */ = {
+			isa = PBXGroup;
+			children = (
+				1DA00B7219C6AEE300694A99 /* MovieDetailsViewController.h */,
+				1DA00B7319C6AEE300694A99 /* MovieDetailsViewController.m */,
+				1DA00B7419C6AEE300694A99 /* MovieDetailsViewController.xib */,
+			);
+			name = "Movie Details";
 			sourceTree = "<group>";
 		};
 		1DA80D1D19C6772D006FB79C /* Movie Cell View */ = {
@@ -263,6 +279,7 @@
 				1D79D26919C3F90100963759 /* Images.xcassets in Resources */,
 				1DA80D1C19C67728006FB79C /* MovieCell.xib in Resources */,
 				1D79D28919C3F99800963759 /* MovieTitleViewController.xib in Resources */,
+				1DA00B7619C6AEE300694A99 /* MovieDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA00B7519C6AEE300694A99 /* MovieDetailsViewController.m in Sources */,
 				1D79D28819C3F99800963759 /* MovieTitleViewController.m in Sources */,
 				1D79D26719C3F90100963759 /* AppDelegate.m in Sources */,
 				1DA80D1B19C67728006FB79C /* MovieCell.m in Sources */,

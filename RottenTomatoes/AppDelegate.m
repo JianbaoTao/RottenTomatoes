@@ -20,7 +20,11 @@
     
     UIViewController *vc = [[MovieTitleViewController alloc] initWithNibName:@"MovieTitleViewController" bundle:nil];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: vc];
+    
+    vc.navigationItem.title = @"Movies";
+    
     self.window.rootViewController = nvc;
+
     
     return YES;
 }
