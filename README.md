@@ -21,7 +21,7 @@ Completed user stories:
 
 Walkthrough:
 
-![Video Walkthrough](tipcalc.gif)
+![Video Walkthrough](rotten.tomatoes.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
