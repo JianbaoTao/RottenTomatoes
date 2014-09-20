@@ -17,6 +17,9 @@
 @property (strong, nonatomic) MovieDetailsViewController *detailsVC;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadIndicator;
 
+@property (strong, nonatomic) UIView *networkErrorView;
+@property (strong, nonatomic) UILabel *networkErrorLabel;
+
 @end
 
 @implementation MovieTitleViewController
@@ -47,9 +50,14 @@
     
     NSURLRequest *request = [self createHttpRequest];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.movies = dict[@"movies"];
-        [self.tableView reloadData];
+        if (connectionError != nil) {
+            NSLog(@"Error in loading");
+            [self handleConnectionError:connectionError];
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            self.movies = dict[@"movies"];
+            [self.tableView reloadData];
+        }
         [self.loadIndicator stopAnimating];
     }];
     
@@ -61,12 +69,36 @@
     
     NSURLRequest *request = [self createHttpRequest];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        self.movies = dict[@"movies"];
-        [self.tableView reloadData];
+        if (connectionError != nil) {
+            NSLog(@"Error in loading");
+            [self handleConnectionError:connectionError];
+        } else {
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            self.movies = dict[@"movies"];
+            [self.tableView reloadData];
+        }
         [sender endRefreshing];
     }];
 }
+
+- (void)handleConnectionError:(NSError *)error {
+    NSError *underlyingError = [[error userInfo] objectForKey:NSUnderlyingErrorKey];
+    self.networkErrorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    self.networkErrorView.backgroundColor = [UIColor blackColor];
+    self.networkErrorView.alpha = .85;
+    
+    // configure the error label
+    self.networkErrorLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 60)];
+    self.networkErrorLabel.text = [underlyingError localizedDescription];
+    [self.networkErrorLabel setTextColor:[UIColor whiteColor]];
+    [self.networkErrorLabel setNumberOfLines:0];
+    [self.networkErrorLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f]];
+    [self.networkErrorLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [self.networkErrorView addSubview:self.networkErrorLabel];
+    [self.tableView addSubview:self.networkErrorView];
+}
+
 
 - (NSURLRequest *) createHttpRequest {
     NSString *url = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us";
@@ -102,7 +134,7 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"selected row %d", indexPath.row);
+    NSLog(@"selected row %ld", (long)indexPath.row);
     
     if (!self.detailsVC) {
         self.detailsVC = [[MovieDetailsViewController alloc] initWithNibName:@"MovieDetailsViewController" bundle:nil];
